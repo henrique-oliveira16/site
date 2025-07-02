@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Para o Amor da Minha Vida</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #ffe0e9, #ffffff);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #c2185b;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    img {
+      width: 250px;
+      border-radius: 20px;
+      margin-top: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-top: 20px;
+    }
+
+    p {
+      font-size: 20px;
+      margin: 20px 0;
+    }
+
+    #contador {
+      font-size: 24px;
+      margin-top: 20px;
+      color: #880e4f;
+    }
+
+    iframe {
+      margin-top: 30px;
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Para você, minha princesa ❤️</h1>
+    <img src="foto-nosso-amor.jpeg" alt="Nossa Foto">
+
+    <p>
+      Desde o dia <strong>01/01/2025</strong>, comecei a amar mais ainda uma pessoa que eu já amava. Ela ficou mais importante na minha vida depois desse dia. E desde então, ela tem feito os meus dias muito mais felizes ao lado dela. Ela me fez uma pessoa muito feliz. Só tenho a agradecer pela sua presença na minha vida. Isso são meras palavras de como expresso meu amor por você.
+    </p>
+
+    <div id="contador"></div>
+
+    <p>
+      Nicoly, saiba que você é uma das pessoas que eu mais amo na minha vida. Saiba que você é muito importante para mim, você é muito amorosa, carinhosa e amiga. Espero poder fazer de você uma pessoa muito feliz e amada 💖
+    </p>
+
+    <iframe src="https://www.youtube.com/embed/J34fJWYwALU" allowfullscreen></iframe>
+  </div>
+
+  <script>
+    function atualizarContador() {
+      const dataInicio = new Date("2025-01-01T00:00:00");
+      const agora = new Date();
+      const diferenca = agora - dataInicio;
+
+      const segundosTotais = Math.floor(diferenca / 1000);
+      const dias = Math.floor(segundosTotais / (60 * 60 * 24));
+      const horas = Math.floor((segundosTotais % (60 * 60 * 24)) / (60 * 60));
+      const minutos = Math.floor((segundosTotais % (60 * 60)) / 60);
+      const segundos = segundosTotais % 60;
+
+      document.getElementById("contador").innerText = 
+        `Te amo há ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos!`;
+    }
+
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
+  </script>
+</body>
+</html>
