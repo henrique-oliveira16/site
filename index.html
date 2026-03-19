@@ -72,24 +72,40 @@
     <iframe src="https://www.youtube.com/embed/J34fJWYwALU" allowfullscreen></iframe>
   </div>
 
-  <script>
-    function atualizarContador() {
-      const dataInicio = new Date("2025-01-01T00:00:00");
-      const agora = new Date();
-      const diferenca = agora - dataInicio;
+<script>
+function atualizarContador() {
+  const dataInicio = new Date(2025, 0, 1); // mês começa do 0 (0 = janeiro)
+  const agora = new Date();
 
-      const segundosTotais = Math.floor(diferenca / 1000);
-      const dias = Math.floor(segundosTotais / (60 * 60 * 24));
-      const horas = Math.floor((segundosTotais % (60 * 60 * 24)) / (60 * 60));
-      const minutos = Math.floor((segundosTotais % (60 * 60)) / 60);
-      const segundos = segundosTotais % 60;
+  let anos = agora.getFullYear() - dataInicio.getFullYear();
+  let meses = agora.getMonth() - dataInicio.getMonth();
+  let dias = agora.getDate() - dataInicio.getDate();
 
-      document.getElementById("contador").innerText = 
-        `Te amo há ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos!`;
-    }
+  // Ajustes quando valores ficam negativos
+  if (dias < 0) {
+    meses--;
+    const ultimoMes = new Date(agora.getFullYear(), agora.getMonth(), 0);
+    dias += ultimoMes.getDate();
+  }
 
-    setInterval(atualizarContador, 1000);
-    atualizarContador();
-  </script>
+  if (meses < 0) {
+    anos--;
+    meses += 12;
+  }
+
+  const diferenca = agora - dataInicio;
+  const segundosTotais = Math.floor(diferenca / 1000);
+
+  const horas = Math.floor((segundosTotais % (60 * 60 * 24)) / (60 * 60));
+  const minutos = Math.floor((segundosTotais % (60 * 60)) / 60);
+  const segundos = segundosTotais % 60;
+
+  document.getElementById("contador").innerText = 
+    `Te amo há ${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos! 💖`;
+}
+
+setInterval(atualizarContador, 1000);
+atualizarContador();
+</script>
 </body>
 </html>
